@@ -296,21 +296,11 @@
             box-shadow: 0 0 0 3px rgba(255, 165, 0, 0.2);
         }
         
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        
-        .animate-fade-in {
-            animation: fadeIn 0.6s ease forwards;
-        }
-        
         .stat-card:hover {
             border-color: rgba(255, 165, 0, 0.3);
             transform: translateY(-5px);
         }
 
-        /* --- CÓDIGO AÑADIDO PARA EFECTO DE ESTELA --- */
         .sparkle {
             position: absolute;
             width: 4px;
@@ -321,117 +311,520 @@
             opacity: 0;
             z-index: 9999;
         }
-        /* --- FIN DEL CÓDIGO AÑADIDO --- */
-    </style>
-</head>
-<body class="grid-pattern">
-    <!-- El resto del body se mantiene igual... -->
-    
-    <!-- ... Todo el contenido del <body> ... -->
-    <!-- ... desde <header> hasta <footer> ... -->
 
-    <!-- Footer -->
-    <footer class="bg-black/70 border-t border-gray-800 relative z-10">
-        <!-- Contenido del footer -->
-    </footer>
-
-    <script>
-        document.getElementById('mobile-menu-button').addEventListener('click', function() {
-            const menu = document.getElementById('mobile-menu');
-            menu.classList.toggle('hidden');
-        });
-
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const targetId = this.getAttribute('href');
-                const targetElement = document.querySelector(targetId);
-                if (targetElement) {
-                    targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                    const mobileMenu = document.getElementById('mobile-menu');
-                    if (!mobileMenu.classList.contains('hidden')) {
-                        mobileMenu.classList.add('hidden');
-                    }
-                }
-            });
-        });
-
-        const typewriterElement = document.querySelector(".typewriter");
-        const words = ["Negocio", "Eficiencia", "Futuro"];
-        let wordIndex = 0;
-        let charIndex = 0;
-        let isDeleting = false;
-
-        function type() {
-            const currentWord = words[wordIndex];
-            if (isDeleting) {
-                typewriterElement.textContent = currentWord.substring(0, charIndex - 1);
-                charIndex--;
-            } else {
-                typewriterElement.textContent = currentWord.substring(0, charIndex + 1);
-                charIndex++;
-            }
-
-            if (!isDeleting && charIndex === currentWord.length) {
-                setTimeout(() => isDeleting = true, 2000);
-            } else if (isDeleting && charIndex === 0) {
-                isDeleting = false;
-                wordIndex = (wordIndex + 1) % words.length;
-            }
-            
-            const typingSpeed = isDeleting ? 100 : 150;
-            setTimeout(type, typingSpeed);
-        }
-
-        window.addEventListener('load', () => setTimeout(type, 1500));
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('animate-fade-in-visible');
-                }
-            });
-        }, { threshold: 0.1 });
-
-        document.querySelectorAll('.animate-fade-in').forEach(el => {
-            el.style.opacity = '0';
-            observer.observe(el);
-        });
-
-        /* --- CÓDIGO AÑADIDO PARA EFECTO DE ESTELA --- */
-        document.addEventListener('mousemove', function(e) {
-            const sparkle = document.createElement('div');
-            sparkle.className = 'sparkle';
-            document.body.appendChild(sparkle);
-            
-            sparkle.style.left = e.pageX + 'px';
-            sparkle.style.top = e.pageY + 'px';
-            
-            sparkle.animate([
-                { opacity: 1, transform: 'scale(1)' },
-                { opacity: 0, transform: `scale(3) translate(${Math.random()*40-20}px, ${Math.random()*40-20}px)` }
-            ], {
-                duration: 800,
-                easing: 'cubic-bezier(0.4, 0, 0.2, 1)',
-                fill: 'forwards'
-            });
-            
-            setTimeout(() => {
-                sparkle.remove();
-            }, 800);
-        });
-        /* --- FIN DEL CÓDIGO AÑADIDO --- */
-
-    </script>
-    <style>
+        /* --- CORRECCIÓN: Estilos de animación movidos aquí --- */
         .animate-fade-in {
-            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+            opacity: 0;
             transform: translateY(20px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
         }
-        .animate-fade-in-visible {
-            opacity: 1 !important;
+        .animate-fade-in.is-visible {
+            opacity: 1;
             transform: translateY(0);
         }
     </style>
+</head>
+<body class="grid-pattern">
+    <!-- Animated background elements -->
+    <div class="fixed inset-0 overflow-hidden pointer-events-none z-0">
+        <div class="animated-blob w-96 h-96 bg-primary -left-20 -top-20 opacity-10" style="animation-delay: 0s;"></div>
+        <div class="animated-blob w-80 h-80 bg-secondary top-1/4 -right-40 opacity-10" style="animation-delay: 2s;"></div>
+    </div>
+
+    <!-- Navigation -->
+    <header class="bg-black/70 backdrop-blur-md border-b border-gray-800 fixed w-full z-50">
+        <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-20 items-center">
+                <div class="flex items-center gap-8">
+                    <a href="#" aria-label="Página de inicio de Mr. Seldon">
+                        <div class="flex items-center">
+                            <img src="https://imagedelivery.net/LtCN8b7XAtToQgo5calb3g/d9095057-4171-41c5-e634-11005a8d9b00/public" alt="Logo de Mr. Seldon" class="h-10 mr-3">
+                            <span class="text-2xl font-bold animated-gradient">Mr. Seldon</span>
+                        </div>
+                    </a>
+                    <div class="hidden md:flex gap-6">
+                        <a href="#servicios" class="font-medium text-gray-300 hover:text-primary transition-colors primary-underline">Servicios</a>
+                        <a href="#sectores" class="font-medium text-gray-300 hover:text-primary transition-colors primary-underline">Sectores</a>
+                        <a href="#casos-exito" class="font-medium text-gray-300 hover:text-primary transition-colors primary-underline">Casos de Éxito</a>
+                        <a href="#metodologia" class="font-medium text-gray-300 hover:text-primary transition-colors primary-underline">Metodología</a>
+                        <a href="#contacto" class="font-medium text-gray-300 hover:text-primary transition-colors primary-underline">Contacto</a>
+                    </div>
+                </div>
+                <div class="flex items-center gap-4">
+                    <a href="#contacto" class="btn-primary px-6 py-3 rounded-full flex items-center gap-2 glow-box pulse">
+                        <i class="fas fa-rocket"></i>
+                        <span>Solicita una Demo</span>
+                    </a>
+                    <button class="md:hidden text-gray-300 hover:text-primary" id="mobile-menu-button" aria-label="Abrir menú">
+                        <i class="fas fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Mobile menu -->
+        <div class="md:hidden hidden bg-black/90 backdrop-blur-lg border-t border-gray-800" id="mobile-menu">
+            <div class="px-4 py-3 space-y-4">
+                <a href="#servicios" class="block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:text-primary hover:bg-gray-900">Servicios</a>
+                <a href="#sectores" class="block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:text-primary hover:bg-gray-900">Sectores</a>
+                <a href="#casos-exito" class="block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:text-primary hover:bg-gray-900">Casos de Éxito</a>
+                <a href="#metodologia" class="block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:text-primary hover:bg-gray-900">Metodología</a>
+                <a href="#contacto" class="block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:text-primary hover:bg-gray-900">Contacto</a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="pt-32 pb-24 px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="max-w-7xl mx-auto">
+                <div class="flex flex-col lg:flex-row items-center gap-8 xl:gap-12">
+                    <div class="lg:w-1/2">
+                        <div class="bg-black/20 border border-gray-800 rounded-full px-4 py-1.5 w-max mb-6 glow-box">
+                            <span class="text-primary text-sm font-medium">CONSULTORÍA DE INTELIGENCIA ARTIFICIAL</span>
+                        </div>
+                        <h1 class="text-5xl md:text-6xl lg:text-7xl font-bold hero-title mb-6">
+                            <span class="animated-gradient">Innovación</span> que impulsa tu <span class="typewriter typing">Negocio</span>
+                        </h1>
+                        <p class="text-xl md:text-2xl text-gray-300 mb-8 max-w-xl">
+                            Transformamos tu empresa con soluciones de IA a medida. Optimizamos procesos, reducimos costes y desbloqueamos tu máximo potencial.
+                        </p>
+                        <div class="flex flex-col sm:flex-row gap-4 mb-12">
+                            <a href="#contacto" class="btn-primary px-8 py-4 rounded-full text-lg flex items-center justify-center gap-2">
+                                <i class="fas fa-bolt"></i>
+                                Solicita una Demo
+                            </a>
+                            <a href="#servicios" class="btn-secondary px-8 py-4 rounded-full text-lg flex items-center justify-center gap-2">
+                                <i class="fas fa-cogs"></i>
+                                Ver Servicios
+                            </a>
+                        </div>
+                        <div class="flex flex-wrap gap-6 items-center">
+                            <div class="flex -space-x-4">
+                                <img src="https://randomuser.me/api/portraits/women/43.jpg" class="w-12 h-12 rounded-full border-2 border-black" alt="Cliente satisfecho 1">
+                                <img src="https://randomuser.me/api/portraits/men/32.jpg" class="w-12 h-12 rounded-full border-2 border-black" alt="Cliente satisfecho 2">
+                                <img src="https://randomuser.me/api/portraits/women/65.jpg" class="w-12 h-12 rounded-full border-2 border-black" alt="Cliente satisfecho 3">
+                                <div class="w-12 h-12 rounded-full border-2 border-black bg-gray-900 flex items-center justify-center">
+                                    <span class="text-xs font-bold text-primary">+100</span>
+                                </div>
+                            </div>
+                            <div class="flex flex-col sm:flex-row sm:items-center gap-2">
+                                <div class="flex items-center">
+                                    <i class="fas fa-star text-yellow-400 mr-1"></i>
+                                    <i class="fas fa-star text-yellow-400 mr-1"></i>
+                                    <i class="fas fa-star text-yellow-400 mr-1"></i>
+                                    <i class="fas fa-star text-yellow-400 mr-1"></i>
+                                    <i class="fas fa-star text-yellow-400 mr-1"></i>
+                                </div>
+                                <span class="text-sm text-gray-400">Con la confianza de empresas líderes</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="lg:w-1/2 relative hero-ai-tool">
+                        <div class="relative floating">
+                            <div class="gradient-box rounded-xl w-full max-w-xl mx-auto primary-border tilt-effect p-2">
+                                <div class="ai-tool-container bg-black/50 rounded-lg">
+                                    <div class="flex items-center justify-between p-3 border-b border-primary/20">
+                                        <div class="flex items-center gap-2">
+                                            <div class="w-3 h-3 rounded-full bg-[#ff5f56]"></div>
+                                            <div class="w-3 h-3 rounded-full bg-[#ffbd2e]"></div>
+                                            <div class="w-3 h-3 rounded-full bg-[#27c93f]"></div>
+                                        </div>
+                                        <h3 class="text-xs font-medium text-gray-400">Asistente IA de Mr. Seldon</h3>
+                                        <div class="w-20"></div>
+                                    </div>
+                                    <div class="p-5">
+                                        <div class="mb-3 p-3 bg-gray-900/50 rounded-lg border-l-2 border-primary">
+                                            <h4 class="font-bold text-primary mb-1">Análisis de Procesos Completado</h4>
+                                            <p class="text-sm text-gray-300">¡Hola! He analizado los flujos de trabajo de tu empresa de ventas.</p>
+                                        </div>
+                                        <div class="mb-3 p-3 bg-gray-900/50 rounded-lg border-l-2 border-primary">
+                                            <h4 class="font-bold text-primary mb-1">Oportunidad de Optimización</h4>
+                                            <p class="text-sm text-gray-300">Detecto un cuello de botella en la gestión de facturas. Se puede automatizar el 85% del proceso, ahorrando ~20 horas/semana.</p>
+                                            <div class="mt-3 flex items-center gap-2">
+                                                <span class="text-xs bg-primary/10 text-primary px-2 py-1 rounded-full">Coste Reducido: 45%</span>
+                                                <span class="text-xs bg-secondary/10 text-secondary px-2 py-1 rounded-full">Eficiencia: +70%</span>
+                                            </div>
+                                        </div>
+                                        <div class="flex items-center gap-2 text-primary">
+                                            <span class="text-xs">Buscando más oportunidades...</span>
+                                            <div class="w-2 h-2 bg-primary rounded-full animate-pulse" style="animation-delay: 0s;"></div>
+                                            <div class="w-2 h-2 bg-primary rounded-full animate-pulse" style="animation-delay: 0.2s;"></div>
+                                            <div class="w-2 h-2 bg-primary rounded-full animate-pulse" style="animation-delay: 0.4s;"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Marquee -->
+        <div class="py-8 bg-black/30 border-y border-gray-800 relative overflow-hidden">
+            <div class="absolute inset-0 gradient-mask z-10"></div>
+            <div class="scrolling-text whitespace-nowrap text-gray-500 text-sm font-medium w-max flex gap-16">
+                <span class="flex items-center gap-2"><i class="fas fa-check text-primary"></i> Optimización de procesos con IA</span><span>•</span>
+                <span class="flex items-center gap-2"><i class="fas fa-check text-primary"></i> Reducción de costes operativos</span><span>•</span>
+                <span class="flex items-center gap-2"><i class="fas fa-check text-primary"></i> Consultoría para sector formativo</span><span>•</span>
+                <span class="flex items-center gap-2"><i class="fas fa-check text-primary"></i> Automatización para empresas de ventas</span><span>•</span>
+                <span class="flex items-center gap-2"><i class="fas fa-check text-primary"></i> Soluciones para carga administrativa</span><span>•</span>
+                <span class="flex items-center gap-2"><i class="fas fa-check text-primary"></i> Machine Learning a medida</span>
+                <span class="flex items-center gap-2 ml-16"><i class="fas fa-check text-primary"></i> Optimización de procesos con IA</span><span>•</span>
+                <span class="flex items-center gap-2"><i class="fas fa-check text-primary"></i> Reducción de costes operativos</span><span>•</span>
+                <span class="flex items-center gap-2"><i class="fas fa-check text-primary"></i> Consultoría para sector formativo</span><span>•</span>
+                <span class="flex items-center gap-2"><i class="fas fa-check text-primary"></i> Automatización para empresas de ventas</span><span>•</span>
+                <span class="flex items-center gap-2"><i class="fas fa-check text-primary"></i> Soluciones para carga administrativa</span><span>•</span>
+                <span class="flex items-center gap-2"><i class="fas fa-check text-primary"></i> Machine Learning a medida</span>
+            </div>
+        </div>
+
+        <!-- Services Section -->
+        <section id="servicios" class="py-24 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-black to-gray-900">
+            <div class="max-w-7xl mx-auto relative z-10">
+                <div class="text-center mb-16">
+                    <span class="inline-block px-4 py-1.5 rounded-full bg-black/30 border border-gray-800 text-primary font-medium mb-4 glow-box">NUESTRAS SOLUCIONES</span>
+                    <h2 class="text-4xl md:text-5xl font-bold text-white mb-6">
+                        Potencia tu Negocio con <span class="animated-gradient">Inteligencia Artificial</span>
+                    </h2>
+                    <p class="text-xl text-gray-300 max-w-3xl mx-auto">
+                        Ofrecemos soluciones integrales para transformar tus operaciones y llevar tu empresa al siguiente nivel.
+                    </p>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <div class="gradient-box p-8 rounded-2xl feature-card tilt-effect">
+                        <div class="w-12 h-12 rounded-full bg-primary/10 text-primary text-xl flex items-center justify-center mb-6"><i class="fas fa-users-gear"></i></div>
+                        <h3 class="text-xl font-bold text-white mb-4">Consultoría Estratégica de IA</h3>
+                        <p class="text-gray-400">Analizamos tu negocio para diseñar una hoja de ruta de IA que se alinee con tus objetivos y maximice el ROI.</p>
+                    </div>
+                    <div class="gradient-box p-8 rounded-2xl feature-card tilt-effect">
+                        <div class="w-12 h-12 rounded-full bg-primary/10 text-primary text-xl flex items-center justify-center mb-6"><i class="fas fa-chart-line"></i></div>
+                        <h3 class="text-xl font-bold text-white mb-4">Mejora de Eficiencia y Ahorro</h3>
+                        <p class="text-gray-400">Implementamos IA para automatizar tareas repetitivas, optimizar la asignación de recursos y reducir costes operativos.</p>
+                    </div>
+                    <div class="gradient-box p-8 rounded-2xl feature-card tilt-effect">
+                        <div class="w-12 h-12 rounded-full bg-primary/10 text-primary text-xl flex items-center justify-center mb-6"><i class="fas fa-cogs"></i></div>
+                        <h3 class="text-xl font-bold text-white mb-4">Creación de Procesos y Flujos</h3>
+                        <p class="text-gray-400">Diseñamos y construimos flujos de trabajo inteligentes que mejoran la productividad y minimizan errores humanos.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Key Sectors Section -->
+        <section id="sectores" class="py-24 px-4 sm:px-6 lg:px-8 bg-black/20 relative overflow-hidden">
+            <div class="max-w-7xl mx-auto relative z-10">
+                <div class="text-center mb-16">
+                    <span class="inline-block px-4 py-1.5 rounded-full bg-black/30 border border-gray-800 text-primary font-medium mb-4 glow-box">NUESTRO ENFOQUE</span>
+                    <h2 class="text-4xl md:text-5xl font-bold text-white mb-6">
+                        Sectores Clave que <span class="animated-gradient">Transformamos</span>
+                    </h2>
+                    <p class="text-xl text-gray-300 max-w-3xl mx-auto">
+                        Nuestra experiencia nos permite ofrecer soluciones de alto impacto en estas industrias.
+                    </p>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <div class="group aspect-video bg-gray-900/70 rounded-xl p-6 flex flex-col justify-center items-center border border-gray-800 hover:border-primary/50 transition-all cursor-pointer tilt-effect">
+                        <div class="w-16 h-16 rounded-full bg-black flex items-center justify-center text-primary text-3xl mb-4 group-hover:bg-primary/10 transition-colors"><i class="fas fa-chalkboard-teacher"></i></div>
+                        <h3 class="font-bold text-xl text-center">Formación y Educación</h3>
+                        <p class="text-xs text-primary mt-1 text-center">Personalización del aprendizaje y automatización de la gestión académica.</p>
+                    </div>
+                    <div class="group aspect-video bg-gray-900/70 rounded-xl p-6 flex flex-col justify-center items-center border border-gray-800 hover:border-primary/50 transition-all cursor-pointer tilt-effect">
+                        <div class="w-16 h-16 rounded-full bg-black flex items-center justify-center text-primary text-3xl mb-4 group-hover:bg-primary/10 transition-colors"><i class="fas fa-store"></i></div>
+                        <h3 class="font-bold text-xl text-center">Empresas de Ventas</h3>
+                        <p class="text-xs text-primary mt-1 text-center">Optimización de CRM, predicción de ventas y automatización de seguimientos.</p>
+                    </div>
+                    <div class="group aspect-video bg-gray-900/70 rounded-xl p-6 flex flex-col justify-center items-center border border-gray-800 hover:border-primary/50 transition-all cursor-pointer tilt-effect">
+                        <div class="w-16 h-16 rounded-full bg-black flex items-center justify-center text-primary text-3xl mb-4 group-hover:bg-primary/10 transition-colors"><i class="fas fa-file-invoice"></i></div>
+                        <h3 class="font-bold text-xl text-center">Carga Administrativa</h3>
+                        <p class="text-xs text-primary mt-1 text-center">Automatización de facturación, gestión documental y procesamiento de datos.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Success Stories Section -->
+        <section id="casos-exito" class="py-24 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-black to-gray-900">
+            <div class="max-w-7xl mx-auto relative z-10">
+                <div class="text-center mb-16">
+                    <span class="inline-block px-4 py-1.5 rounded-full bg-black/30 border border-gray-800 text-primary font-medium mb-4 glow-box">RESULTADOS REALES</span>
+                    <h2 class="text-4xl md:text-5xl font-bold text-white mb-6">
+                        Transformando <span class="animated-gradient">Negocios como el Tuyo</span>
+                    </h2>
+                    <p class="text-xl text-gray-300 max-w-3xl mx-auto">
+                        Descubre cómo nuestros clientes han alcanzado el éxito gracias a nuestras soluciones de IA.
+                    </p>
+                </div>
+                
+                <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                    <div class="gradient-box p-8 rounded-2xl relative overflow-hidden testimonial-card">
+                        <div class="flex items-center gap-4 mb-6">
+                            <img src="https://randomuser.me/api/portraits/lego/1.jpg" class="w-16 h-16 rounded-full object-cover border-2 border-primary/30" alt="Logo de EducaFuturo">
+                            <div>
+                                <h4 class="font-bold text-white">EducaFuturo</h4>
+                                <span class="text-primary text-sm">Sector Formación</span>
+                            </div>
+                        </div>
+                        <p class="text-gray-300 mb-6">
+                            "Mr. Seldon nos ayudó a implementar un sistema de IA que personaliza los planes de estudio. Como resultado, la tasa de finalización de cursos aumentó un 40%."
+                        </p>
+                        <div class="bg-black/30 rounded-lg p-4 border border-gray-700">
+                            <h4 class="font-bold">Retención de Estudiantes: <span class="text-primary">+25%</span></h4>
+                        </div>
+                    </div>
+                    <div class="gradient-box p-8 rounded-2xl relative overflow-hidden testimonial-card">
+                        <div class="flex items-center gap-4 mb-6">
+                            <img src="https://randomuser.me/api/portraits/lego/5.jpg" class="w-16 h-16 rounded-full object-cover border-2 border-primary/30" alt="Logo de VendeMás Corp">
+                            <div>
+                                <h4 class="font-bold text-white">VendeMás Corp</h4>
+                                <span class="text-primary text-sm">Sector Ventas</span>
+                            </div>
+                        </div>
+                        <p class="text-gray-300 mb-6">
+                            "La automatización del seguimiento de leads y la calificación inteligente que nos proporcionaron ha sido revolucionaria. Nuestro equipo de ventas ahora es un 30% más eficiente."
+                        </p>
+                        <div class="bg-black/30 rounded-lg p-4 border border-gray-700">
+                            <h4 class="font-bold">Conversión de Ventas: <span class="text-primary">+18%</span></h4>
+                        </div>
+                    </div>
+                    <div class="gradient-box p-8 rounded-2xl relative overflow-hidden testimonial-card">
+                        <div class="flex items-center gap-4 mb-6">
+                            <img src="https://randomuser.me/api/portraits/lego/8.jpg" class="w-16 h-16 rounded-full object-cover border-2 border-primary/30" alt="Logo de GestiónTotal S.L.">
+                            <div>
+                                <h4 class="font-bold text-white">GestiónTotal S.L.</h4>
+                                <span class="text-primary text-sm">Sector Administrativo</span>
+                            </div>
+                        </div>
+                        <p class="text-gray-300 mb-6">
+                            "Gracias a la IA para procesar facturas y documentos, hemos liberado a nuestro equipo de tareas manuales, ahorrando más de 50 horas de trabajo a la semana."
+                        </p>
+                        <div class="bg-black/30 rounded-lg p-4 border border-gray-700">
+                            <h4 class="font-bold">Horas Administrativas Ahorradas: <span class="text-primary">200+ al mes</span></h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Methodology Section -->
+        <section id="metodologia" class="py-24 px-4 sm:px-6 lg:px-8 bg-black/20">
+            <div class="max-w-7xl mx-auto">
+                <div class="text-center mb-16">
+                    <span class="inline-block px-4 py-1.5 rounded-full bg-black/30 border border-gray-800 text-primary font-medium mb-4 glow-box">PROCESO GARANTIZADO</span>
+                    <h2 class="text-4xl md:text-5xl font-bold text-white mb-6">
+                        Nuestra Metodología de <span class="animated-gradient">Éxito</span>
+                    </h2>
+                    <p class="text-xl text-gray-300 max-w-3xl mx-auto">
+                        Un proceso claro y transparente para asegurar que cada proyecto sea un éxito rotundo.
+                    </p>
+                </div>
+                
+                <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 relative">
+                    <div class="absolute top-1/2 left-0 w-full h-1 border-t-2 border-dashed border-primary/30 hidden lg:block"></div>
+                    <div class="gradient-box p-8 rounded-2xl primary-border feature-card tilt-effect animate-fade-in z-10">
+                        <div class="flex flex-col items-center text-center">
+                            <div class="w-24 h-24 bg-gradient-to-br from-black to-gray-900 rounded-full flex items-center justify-center text-primary text-3xl font-bold mb-6 border border-gray-800 shadow-inner-custom">1</div>
+                            <h3 class="text-2xl font-bold text-white mb-4">Análisis y Diagnóstico</h3>
+                            <p class="text-gray-300">Estudiamos tus procesos para identificar las oportunidades de mayor impacto y definir objetivos claros.</p>
+                        </div>
+                    </div>
+                    <div class="gradient-box p-8 rounded-2xl primary-border feature-card tilt-effect animate-fade-in z-10">
+                        <div class="flex flex-col items-center text-center">
+                            <div class="w-24 h-24 bg-gradient-to-br from-black to-gray-900 rounded-full flex items-center justify-center text-primary text-3xl font-bold mb-6 border border-gray-800 shadow-inner-custom">2</div>
+                            <h3 class="text-2xl font-bold text-white mb-4">Diseño e Implementación</h3>
+                            <p class="text-gray-300">Creamos una solución de IA a medida y la integramos de forma fluida en tus sistemas existentes.</p>
+                        </div>
+                    </div>
+                    <div class="gradient-box p-8 rounded-2xl primary-border feature-card tilt-effect animate-fade-in z-10">
+                        <div class="flex flex-col items-center text-center">
+                            <div class="w-24 h-24 bg-gradient-to-br from-black to-gray-900 rounded-full flex items-center justify-center text-primary text-3xl font-bold mb-6 border border-gray-800 shadow-inner-custom">3</div>
+                            <h3 class="text-2xl font-bold text-white mb-4">Soporte y Evolución</h3>
+                            <p class="text-gray-300">Monitorizamos los resultados y ofrecemos soporte continuo para que la solución crezca contigo.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section id="contacto" class="py-24 px-4 sm:px-6 lg:px-8 bg-gradient-to-r from-black to-gray-900">
+            <div class="max-w-7xl mx-auto text-center relative z-10">
+                <h2 class="text-4xl md:text-5xl font-bold text-white mb-6">
+                    ¿Listo para transformar tu <span class="animated-gradient">Empresa</span>?
+                </h2>
+                <p class="text-xl text-gray-300 max-w-3xl mx-auto mb-10">
+                    Hablemos de cómo la Inteligencia Artificial puede ayudarte a alcanzar tus objetivos más ambiciosos. La primera consulta es gratuita.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                    <a href="mailto:contacto@mrseldon.com" class="btn-primary px-8 py-4 rounded-full text-lg">
+                        <i class="fas fa-rocket mr-2"></i>
+                        Solicitar Demo Gratuita
+                    </a>
+                    <a href="tel:+34000000000" class="btn-secondary px-8 py-4 rounded-full text-lg">
+                        <i class="fas fa-phone mr-2"></i>
+                        Llámanos Ahora
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-black/70 border-t border-gray-800 relative z-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+            <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-12">
+                <div class="col-span-2">
+                    <a href="#" aria-label="Página de inicio de Mr. Seldon">
+                        <div class="flex items-center mb-6">
+                            <img src="https://imagedelivery.net/LtCN8b7XAtToQgo5calb3g/d9095057-4171-41c5-e634-11005a8d9b00/public" alt="Logo de Mr. Seldon" class="h-10 mr-3">
+                            <span class="text-2xl font-bold animated-gradient">Mr. Seldon</span>
+                        </div>
+                    </a>
+                    <p class="text-gray-400 mb-6">Innovación y eficiencia impulsadas por Inteligencia Artificial.</p>
+                    <div class="flex gap-4">
+                        <a href="#" class="w-10 h-10 rounded-full bg-gray-900 flex items-center justify-center text-gray-300 hover:text-primary transition-colors" aria-label="Twitter de Mr. Seldon"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="w-10 h-10 rounded-full bg-gray-900 flex items-center justify-center text-gray-300 hover:text-primary transition-colors" aria-label="LinkedIn de Mr. Seldon"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="text-lg font-semibold text-white mb-4">Soluciones</h4>
+                    <ul class="space-y-3">
+                        <li><a href="#servicios" class="text-gray-400 hover:text-primary transition-colors">Consultoría de IA</a></li>
+                        <li><a href="#servicios" class="text-gray-400 hover:text-primary transition-colors">Optimización de Procesos</a></li>
+                        <li><a href="#servicios" class="text-gray-400 hover:text-primary transition-colors">Automatización</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-lg font-semibold text-white mb-4">Recursos</h4>
+                    <ul class="space-y-3">
+                        <li><a href="#casos-exito" class="text-gray-400 hover:text-primary transition-colors">Casos de Éxito</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-primary transition-colors">Blog</a></li>
+                        <li><a href="#contacto" class="text-gray-400 hover:text-primary transition-colors">Contacto</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-lg font-semibold text-white mb-4">Empresa</h4>
+                    <ul class="space-y-3">
+                        <li><a href="#" class="text-gray-400 hover:text-primary transition-colors">Sobre Nosotros</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-primary transition-colors">Legal</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 mt-16 pt-8 flex flex-col md:flex-row justify-between items-center">
+                <p class="text-gray-400">© 2024 Mr. Seldon. Todos los derechos reservados.</p>
+                <div class="flex gap-6 mt-4 md:mt-0">
+                    <a href="#" class="text-gray-400 hover:text-primary transition-colors text-sm">Política de Privacidad</a>
+                    <a href="#" class="text-gray-400 hover:text-primary transition-colors text-sm">Términos de Servicio</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Espera a que el DOM esté completamente cargado para ejecutar los scripts
+        document.addEventListener('DOMContentLoaded', () => {
+
+            // Menú móvil
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+            if (mobileMenuButton && mobileMenu) {
+                mobileMenuButton.addEventListener('click', function() {
+                    mobileMenu.classList.toggle('hidden');
+                });
+            }
+
+            // Smooth scroll y cierre de menú móvil
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href');
+                    const targetElement = document.querySelector(targetId);
+                    if (targetElement) {
+                        targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                        if (mobileMenu && !mobileMenu.classList.contains('hidden')) {
+                            mobileMenu.classList.add('hidden');
+                        }
+                    }
+                });
+            });
+
+            // Efecto Typewriter
+            const typewriterElement = document.querySelector(".typewriter");
+            if (typewriterElement) {
+                const words = ["Negocio", "Eficiencia", "Futuro"];
+                let wordIndex = 0;
+                let charIndex = 0;
+                let isDeleting = false;
+
+                function type() {
+                    const currentWord = words[wordIndex];
+                    if (isDeleting) {
+                        typewriterElement.textContent = currentWord.substring(0, charIndex - 1);
+                        charIndex--;
+                    } else {
+                        typewriterElement.textContent = currentWord.substring(0, charIndex + 1);
+                        charIndex++;
+                    }
+
+                    if (!isDeleting && charIndex === currentWord.length) {
+                        isDeleting = true;
+                        setTimeout(type, 2000);
+                    } else if (isDeleting && charIndex === 0) {
+                        isDeleting = false;
+                        wordIndex = (wordIndex + 1) % words.length;
+                        setTimeout(type, 500);
+                    } else {
+                        const typingSpeed = isDeleting ? 100 : 150;
+                        setTimeout(type, typingSpeed);
+                    }
+                }
+                setTimeout(type, 1500);
+            }
+            
+            // Animación Fade-in al hacer scroll (Intersection Observer)
+            const fadeInElements = document.querySelectorAll('.animate-fade-in');
+            if (fadeInElements.length > 0) {
+                const observer = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            entry.target.classList.add('is-visible');
+                            observer.unobserve(entry.target);
+                        }
+                    });
+                }, { threshold: 0.1 });
+
+                fadeInElements.forEach(el => {
+                    observer.observe(el);
+                });
+            }
+
+            // Efecto de estela del cursor
+            document.addEventListener('mousemove', function(e) {
+                const sparkle = document.createElement('div');
+                sparkle.className = 'sparkle';
+                document.body.appendChild(sparkle);
+                
+                sparkle.style.left = e.pageX + 'px';
+                sparkle.style.top = e.pageY + 'px';
+                
+                sparkle.animate([
+                    { opacity: 1, transform: 'scale(1)' },
+                    { opacity: 0, transform: `scale(3) translate(${Math.random()*40-20}px, ${Math.random()*40-20}px)` }
+                ], {
+                    duration: 800,
+                    easing: 'cubic-bezier(0.4, 0, 0.2, 1)',
+                    fill: 'forwards'
+                });
+                
+                setTimeout(() => {
+                    sparkle.remove();
+                }, 800);
+            });
+
+        });
+    </script>
 </body>
 </html>
