@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Consultoía IA para Centros de Formación | Mr. Seldon</title>
+    <meta name="description" content="Potencia tu academia, autoescuela o centro de formación con Inteligencia Artificial. Ofrecemos aprendizaje adaptativo, evaluación automática y analítica predictiva para mejorar resultados y optimizar recursos.">
+    <meta name="keywords" content="IA para formación, inteligencia artificial para academias, adaptive learning, automatización educativa, IA para autoescuelas, software para e-learning">
+    <meta name="author" content="Mr. Seldon">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.mrseldon.com/servicios-formacion">
+    <meta property="og:title" content="IA para Centros de Formación | Mr. Seldon">
+    <meta property="og:description" content="Descubre cómo la Inteligencia Artificial puede revolucionar tu centro de formación, personalizando el aprendizaje y automatizando la gestión.">
+    <meta property="og:image" content="https://imagedelivery.net/LtCN8b7XAtToQgo5calb3g/d9095057-4171-41c5-e634-11005a8d9b00/public">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://www.mrseldon.com/servicios-formacion">
+    <meta property="twitter:title" content="IA para Centros de Formación | Mr. Seldon">
+    <meta property="twitter:description" content="Descubre cómo la Inteligencia Artificial puede revolucionar tu centro de formación, personalizando el aprendizaje y automatizando la gestión.">
+    <meta property="twitter:image" content="https://imagedelivery.net/LtCN8b7XAtToQgo5calb3g/d9095057-4171-41c5-e634-11005a8d9b00/public">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #FFA500; /* Naranja Vibrante */
+            --primary-dark: #E59400;
+            --secondary: #0066FF; /* Azul Intenso */
+            --dark: #0A0A0A;
+            --darker: #010101;
+            --light: #F5F5F5;
+            --gray: #1E1E1E;
+        }
+        
+        html { scroll-behavior: smooth; }
+        body { font-family: 'Inter', sans-serif; background-color: var(--dark); color: white; overflow-x: hidden; }
+        .hero-title { 
+            line-height: 1.1; 
+            letter-spacing: -0.03em; 
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+        }
+        .glow-box { box-shadow: 0 0 25px rgba(255, 165, 0, 0.4); transition: box-shadow 0.3s ease; }
+        .glow-box:hover { box-shadow: 0 0 35px rgba(255, 165, 0, 0.5); }
+        .gradient-box { 
+            background: linear-gradient(135deg, rgba(15, 15, 15, 0.9), rgba(5, 5, 5, 0.95)); 
+            backdrop-filter: blur(12px); 
+            -webkit-backdrop-filter: blur(12px); 
+            border: 1px solid rgba(255, 165, 0, 0.15); 
+            box-shadow: 0 8px 40px rgba(0, 0, 0, 0.35);
+            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+        }
+        .primary-border::after { content: ''; position: absolute; inset: 0; border-radius: inherit; padding: 2px; background: linear-gradient(45deg, var(--primary), rgba(255, 165, 0, 0.3)); -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0); mask-composite: exclude; pointer-events: none; }
+        .animated-gradient { background: linear-gradient(-45deg, var(--primary), var(--secondary), var(--primary)); background-size: 300% 300%; -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; animation: gradient 6s ease infinite; }
+        @keyframes gradient { 0% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } 100% { background-position: 0% 50%; } }
+        .grid-pattern { 
+            background-image: linear-gradient(rgba(255, 165, 0, 0.07) 1px, transparent 1px), 
+                            linear-gradient(90deg, rgba(255, 165, 0, 0.07) 1px, transparent 1px); 
+            background-size: 35px 35px; 
+        }
+        .animated-blob { position: absolute; border-radius: 50%; filter: blur(40px); opacity: 0.2; animation: blob-move 15s infinite alternate; }
+        @keyframes blob-move { 0%, 100% { transform: translate(0%, 0%); } 25% { transform: translate(10%, -15%); } 50% { transform: translate(5%, 10%); } 75% { transform: translate(-10%, 5%); } }
+        .tilt-effect { transition: transform 0.3s ease; }
+        .tilt-effect:hover { transform: perspective(1000px) rotateY(5deg) rotateX(3deg) scale(1.05); }
+        .feature-card { 
+            transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1); 
+        }
+        .feature-card:hover { 
+            transform: translateY(-12px); 
+            box-shadow: 0 20px 40px rgba(255, 165, 0, 0.25); 
+        }
+        .primary-underline::after { 
+            content: ''; 
+            position: absolute; 
+            width: 100%; 
+            height: 3px; 
+            bottom: -5px; 
+            left: 0; 
+            background: linear-gradient(90deg, var(--primary), rgba(255,165,0,0.5)); 
+            transform: scaleX(0); 
+            transform-origin: left; 
+            transition: transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1); 
+        }
+        .primary-underline:hover::after { 
+            transform: scaleX(1); 
+        }
+        .btn-primary { 
+            background-color: var(--primary); 
+            color: var(--dark); 
+            font-weight: 800; 
+            position: relative; 
+            overflow: hidden; 
+            z-index: 1; 
+            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1); 
+            letter-spacing: 0.5px;
+        }
+        .btn-primary:hover { 
+            transform: translateY(-3px); 
+            box-shadow: 0 12px 25px rgba(255, 165, 0, 0.4); 
+        }
+        .btn-secondary { 
+            background-color: transparent; 
+            border: 2px solid var(--primary); 
+            color: var(--primary); 
+            font-weight: 800; 
+            position: relative; 
+            overflow: hidden; 
+            z-index: 1; 
+            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+            letter-spacing: 0.5px;
+        }
+        .btn-secondary:hover { 
+            color: var(--dark); 
+            background-color: var(--primary); 
+            transform: translateY(-3px); 
+            box-shadow: 0 8px 20px rgba(255, 165, 0, 0.3);
+        }
+        .sparkle { position: absolute; width: 4px; height: 4px; background-color: var(--primary); border-radius: 50%; pointer-events: none; opacity: 0; z-index: 9999; }
+        .animate-fade-in { opacity: 0; transform: translateY(20px); transition: opacity 0.6s ease-out, transform 0.6s ease-out; }
+        .animate-fade-in.is-visible { opacity: 1; transform: translateY(0); }
+    </style>
+</head>
+<body class="grid-pattern">
+    <!-- Animated background elements -->
+    <div class="fixed inset-0 overflow-hidden pointer-events-none z-0">
+        <div class="animated-blob w-96 h-96 bg-primary -left-20 -top-20 opacity-10" style="animation-delay: 0s;"></div>
+        <div class="animated-blob w-80 h-80 bg-secondary top-1/4 -right-40 opacity-10" style="animation-delay: 2s;"></div>
+    </div>
+
+    <!-- Navigation -->
+    <header class="bg-black/70 backdrop-blur-md border-b border-gray-800 fixed w-full z-50">
+        <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-20 items-center">
+                <div class="flex items-center gap-8">
+                    <a href="index.html" aria-label="Página de inicio de Mr. Seldon">
+                        <div class="flex items-center">
+                            <img src="https://lolezno.github.io/mrseldon/logo-mr-seldon-web.png" alt="Logo de Mr. Seldon" class="h-10 mr-3">
+                            
+                        </div>
+                    </a>
+                    <div class="hidden md:flex gap-6">
+                        <a href="index.html#servicios" class="font-medium text-gray-300 hover:text-primary transition-colors primary-underline">Servicios</a>
+                        <a href="index.html#sectores" class="font-medium text-gray-300 hover:text-primary transition-colors primary-underline">Sectores</a>
+                        <a href="index.html#casos-exito" class="font-medium text-gray-300 hover:text-primary transition-colors primary-underline">Casos de Éxito</a>
+                        <a href="#metodologia" class="font-medium text-gray-300 hover:text-primary transition-colors primary-underline">Metodología</a>
+                        <a href="#contacto" class="font-medium text-gray-300 hover:text-primary transition-colors primary-underline">Contacto</a>
+                    </div>
+                </div>
+                <div class="flex items-center gap-4">
+                    <a href="#contacto" class="btn-primary px-6 py-3 rounded-full flex items-center gap-2 glow-box">
+                        <i class="fas fa-rocket"></i>
+                        <span>Solicita una Demo</span>
+                    </a>
+                    <button class="md:hidden text-gray-300 hover:text-primary" id="mobile-menu-button" aria-label="Abrir menú">
+                        <i class="fas fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </nav>
+        <!-- Mobile menu -->
+        <div class="md:hidden hidden bg-black/90 backdrop-blur-lg border-t border-gray-800" id="mobile-menu">
+            <div class="px-4 py-3 space-y-4">
+                <a href="index.html#servicios" class="block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:text-primary hover:bg-gray-900">Servicios</a>
+                <a href="index.html#sectores" class="block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:text-primary hover:bg-gray-900">Sectores</a>
+                <a href="index.html#casos-exito" class="block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:text-primary hover:bg-gray-900">Casos de Éxito</a>
+                <a href="#metodologia" class="block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:text-primary hover:bg-gray-900">Metodología</a>
+                <a href="#contacto" class="block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:text-primary hover:bg-gray-900">Contacto</a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="pt-32 pb-24 px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="max-w-7xl mx-auto text-center">
+                <div class="bg-black/20 border border-gray-800 rounded-full px-4 py-1.5 w-max mb-6 glow-box mx-auto">
+                    <span class="text-primary text-sm font-medium">SOLUCIONES DE IA PARA EL SECTOR FORMATIVO</span>
+                </div>
+                <h1 class="text-5xl md:text-6xl lg:text-7xl font-bold hero-title mb-6 animate-fade-in">
+                    Revoluciona tu Formación con <span class="animated-gradient">Inteligencia Artificial</span>
+                </h1>
+                <p class="text-xl md:text-2xl text-gray-300 mb-8 max-w-3xl mx-auto animate-fade-in" style="animation-delay: 0.2s;">
+                    En un sector tan competitivo, la personalización y la eficiencia marcan la diferencia. Transformamos tus métodos de enseñanza en experiencias de aprendizaje dinámicas y automatizadas que capturan la atención del alumno y optimizan tus recursos.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center animate-fade-in" style="animation-delay: 0.4s;">
+                    <a href="#contacto" class="btn-primary px-8 py-4 rounded-full text-lg">
+                        <i class="fas fa-bolt"></i>
+                        Solicitar Demo Gratuita
+                    </a>
+                    <a href="#servicios" class="btn-secondary px-8 py-4 rounded-full text-lg">
+                        <i class="fas fa-cogs"></i>
+                        Ver Soluciones
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- A quién ayudamos -->
+        <section class="py-24 px-4 sm:px-6 lg:px-8 bg-black/20">
+            <div class="max-w-7xl mx-auto">
+                <div class="text-center mb-16">
+                    <h2 class="text-3xl md:text-4xl font-bold text-white mb-4 animate-fade-in">Especialistas en la Transformación de Centros como el Tuyo</h2>
+                    <p class="text-lg text-gray-400 max-w-2xl mx-auto animate-fade-in">Ayudamos a una amplia gama de organizaciones educativas a dar el salto tecnológico:</p>
+                </div>
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+                    <div class="gradient-box p-6 rounded-xl text-center animate-fade-in">
+                        <i class="fas fa-school text-primary text-4xl mb-4"></i>
+                        <h3 class="text-xl font-semibold text-white">Academias y Centros de Estudio</h3>
+                    </div>
+                    <div class="gradient-box p-6 rounded-xl text-center animate-fade-in" style="animation-delay: 0.1s;">
+                        <i class="fas fa-briefcase text-primary text-4xl mb-4"></i>
+                        <h3 class="text-xl font-semibold text-white">Consultorías de Formación B2B</h3>
+                    </div>
+                    <div class="gradient-box p-6 rounded-xl text-center animate-fade-in" style="animation-delay: 0.2s;">
+                        <i class="fas fa-car text-primary text-4xl mb-4"></i>
+                        <h3 class="text-xl font-semibold text-white">Autoescuelas</h3>
+                    </div>
+                    <div class="gradient-box p-6 rounded-xl text-center animate-fade-in" style="animation-delay: 0.3s;">
+                        <i class="fas fa-laptop-code text-primary text-4xl mb-4"></i>
+                        <h3 class="text-xl font-semibold text-white">Plataformas de E-learning</h3>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Servicios de IA para Formación -->
+        <section id="servicios" class="py-24 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-gray-900 to-black">
+            <div class="max-w-7xl mx-auto">
+                <div class="text-center mb-16">
+                    <span class="inline-block px-4 py-1.5 rounded-full bg-black/30 border border-gray-800 text-primary font-medium mb-4 glow-box">NUESTRAS SOLUCIONES</span>
+                    <h2 class="text-4xl md:text-5xl font-bold text-white mb-6">
+                        Servicios de IA para el Sector Formativo
+                    </h2>
+                    <p class="text-xl text-gray-300 max-w-3xl mx-auto">
+                        Implementamos tecnología de vanguardia para resolver los desafíos clave de la formación moderna.
+                    </p>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Servicio 1 -->
+                    <div class="gradient-box p-8 rounded-2xl feature-card tilt-effect animate-fade-in">
+                        <div class="w-12 h-12 rounded-full bg-primary/10 text-primary text-2xl flex items-center justify-center mb-6"><i class="fas fa-sitemap"></i></div>
+                        <h3 class="text-xl font-bold text-white mb-4">Plataformas de Aprendizaje Adaptativo</h3>
+                        <p class="text-gray-400 mb-4">Diseñamos sistemas que personalizan el itinerario formativo de cada alumno en tiempo real, basándose en su progreso y ritmo de aprendizaje.</p>
+                        <p class="text-sm font-bold text-primary">Beneficio Clave: Aumenta la tasa de finalización de cursos y la satisfacción del estudiante.</p>
+                    </div>
+                    <!-- Servicio 2 -->
+                    <div class="gradient-box p-8 rounded-2xl feature-card tilt-effect animate-fade-in">
+                        <div class="w-12 h-12 rounded-full bg-primary/10 text-primary text-2xl flex items-center justify-center mb-6"><i class="fas fa-tasks"></i></div>
+                        <h3 class="text-xl font-bold text-white mb-4">Automatización de Evaluaciones y Feedback</h3>
+                        <p class="text-gray-400 mb-4">Implementamos IAs que corrigen exámenes y proporcionan feedback instantáneo, liberando a tu profesorado para que se centre en la enseñanza.</p>
+                        <p class="text-sm font-bold text-primary">Beneficio Clave: Libera más de 15 horas semanales a tu equipo y estandariza la calidad.</p>
+                    </div>
+                    <!-- Servicio 3 -->
+                    <div class="gradient-box p-8 rounded-2xl feature-card tilt-effect animate-fade-in">
+                        <div class="w-12 h-12 rounded-full bg-primary/10 text-primary text-2xl flex items-center justify-center mb-6"><i class="fas fa-headset"></i></div>
+                        <h3 class="text-xl font-bold text-white mb-4">Asistentes Virtuales y Tutores IA 24/7</h3>
+                        <p class="text-gray-400 mb-4">Creamos chatbots que resuelven las dudas frecuentes de los alumnos al instante, disponibles a cualquier hora del día.</p>
+                        <p class="text-sm font-bold text-primary">Beneficio Clave: Mejora la experiencia del alumno y reduce la carga del equipo de soporte.</p>
+                    </div>
+                    <!-- Servicio 4 -->
+                    <div class="gradient-box p-8 rounded-2xl feature-card tilt-effect animate-fade-in">
+                        <div class="w-12 h-12 rounded-full bg-primary/10 text-primary text-2xl flex items-center justify-center mb-6"><i class="fas fa-chart-pie"></i></div>
+                        <h3 class="text-xl font-bold text-white mb-4">Analítica Predictiva del Rendimiento</h3>
+                        <p class="text-gray-400 mb-4">Desarrollamos modelos que identifican a los alumnos en riesgo de abandono, permitiendo una intervención temprana y proactiva.</p>
+                        <p class="text-sm font-bold text-primary">Beneficio Clave: Reduce la tasa de abandono hasta en un 25% y mejora la retención.</p>
+                    </div>
+                    <!-- Servicio 5 (Autoescuelas) -->
+                    <div class="gradient-box p-8 rounded-2xl feature-card tilt-effect animate-fade-in">
+                        <div class="w-12 h-12 rounded-full bg-primary/10 text-primary text-2xl flex items-center justify-center mb-6"><i class="fas fa-road"></i></div>
+                        <h3 class="text-xl font-bold text-white mb-4">Mejora de tiempo de aprobados</h3>
+                        <p class="text-gray-400 mb-4">Implementamos software con IA que crea escenarios para la mejora de los alumnos en la fase de teórico, adaptandose a sus capacidades y entorno.</p>
+                        <p class="text-sm font-bold text-primary">Beneficio Clave: Acelera la preparación y aumenta la tasa de aprobados en el examen teórico.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Beneficios Clave -->
+        <section class="py-24 px-4 sm:px-6 lg:px-8 bg-black/20">
+            <div class="max-w-7xl mx-auto">
+                <div class="text-center mb-16">
+                    <h2 class="text-4xl md:text-5xl font-bold text-white mb-6">
+                        Beneficios que <span class="animated-gradient">Transformarán</span> tu Negocio
+                    </h2>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                    <div class="text-center animate-fade-in">
+                        <div class="w-20 h-20 mx-auto rounded-full bg-primary/10 text-primary text-3xl flex items-center justify-center mb-4"><i class="fas fa-coins"></i></div>
+                        <h3 class="text-xl font-bold text-white mb-2">Optimización de Recursos</h3>
+                        <p class="text-gray-400">Reduce costes automatizando tareas manuales y optimizando la carga de trabajo del profesorado.</p>
+                    </div>
+                    <div class="text-center animate-fade-in" style="animation-delay: 0.1s;">
+                        <div class="w-20 h-20 mx-auto rounded-full bg-primary/10 text-primary text-3xl flex items-center justify-center mb-4"><i class="fas fa-graduation-cap"></i></div>
+                        <h3 class="text-xl font-bold text-white mb-2">Mejora de Resultados</h3>
+                        <p class="text-gray-400">Aumenta las tasas de éxito, finalización y satisfacción de tus alumnos con una enseñanza personalizada.</p>
+                    </div>
+                    <div class="text-center animate-fade-in" style="animation-delay: 0.2s;">
+                        <div class="w-20 h-20 mx-auto rounded-full bg-primary/10 text-primary text-3xl flex items-center justify-center mb-4"><i class="fas fa-star"></i></div>
+                        <h3 class="text-xl font-bold text-white mb-2">Experiencia Superior</h3>
+                        <p class="text-gray-400">Ofrece una formación moderna, interactiva y disponible 24/7 que te diferenciará de la competencia.</p>
+                    </div>
+                    <div class="text-center animate-fade-in" style="animation-delay: 0.3s;">
+                        <div class="w-20 h-20 mx-auto rounded-full bg-primary/10 text-primary text-3xl flex items-center justify-center mb-4"><i class="fas fa-database"></i></div>
+                        <h3 class="text-xl font-bold text-white mb-2">Decisiones Basadas en Datos</h3>
+                        <p class="text-gray-400">Obtén insights valiosos sobre tus operaciones y el rendimiento de los alumnos para una mejora continua.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Methodology Section -->
+        <section id="metodologia" class="py-24 px-4 sm:px-6 lg:px-8 bg-gray-900">
+            <div class="max-w-7xl mx-auto">
+                <div class="text-center mb-16">
+                    <span class="inline-block px-4 py-1.5 rounded-full bg-black/30 border border-gray-800 text-primary font-medium mb-4 glow-box">PROCESO GARANTIZADO</span>
+                    <h2 class="text-4xl md:text-5xl font-bold text-white mb-6">
+                        Nuestra Metodología de Éxito en 3 Pasos
+                    </h2>
+                </div>
+                <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 relative">
+                    <div class="absolute top-1/2 left-0 w-full h-1 border-t-2 border-dashed border-primary/30 hidden lg:block"></div>
+                    <div class="gradient-box p-8 rounded-2xl primary-border feature-card tilt-effect animate-fade-in z-10">
+                        <div class="flex flex-col items-center text-center">
+                            <div class="w-24 h-24 bg-gradient-to-br from-black to-gray-900 rounded-full flex items-center justify-center text-primary text-3xl font-bold mb-6 border border-gray-800">1</div>
+                            <h3 class="text-2xl font-bold text-white mb-4">Análisis y Diagnóstico</h3>
+                            <p class="text-gray-300">Estudiamos tu centro para identificar las mejores oportunidades de implementación de IA.</p>
+                        </div>
+                    </div>
+                    <div class="gradient-box p-8 rounded-2xl primary-border feature-card tilt-effect animate-fade-in z-10">
+                        <div class="flex flex-col items-center text-center">
+                            <div class="w-24 h-24 bg-gradient-to-br from-black to-gray-900 rounded-full flex items-center justify-center text-primary text-3xl font-bold mb-6 border border-gray-800">2</div>
+                            <h3 class="text-2xl font-bold text-white mb-4">Diseño e Implementación</h3>
+                            <p class="text-gray-300">Creamos y desplegamos las soluciones de IA adaptadas a tus necesidades específicas.</p>
+                        </div>
+                    </div>
+                    <div class="gradient-box p-8 rounded-2xl primary-border feature-card tilt-effect animate-fade-in z-10">
+                        <div class="flex flex-col items-center text-center">
+                            <div class="w-24 h-24 bg-gradient-to-br from-black to-gray-900 rounded-full flex items-center justify-center text-primary text-3xl font-bold mb-6 border border-gray-800">3</div>
+                            <h3 class="text-2xl font-bold text-white mb-4">Soporte y Optimización</h3>
+                            <p class="text-gray-300">Te acompañamos para asegurar que la tecnología genere el máximo impacto y evolucione contigo.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section id="contacto" class="py-24 px-4 sm:px-6 lg:px-8 bg-gradient-to-r from-black to-gray-900">
+            <div class="max-w-7xl mx-auto text-center relative z-10">
+                <h2 class="text-4xl md:text-5xl font-bold text-white mb-6">
+                    ¿Listo para llevar tu centro de formación al <span class="animated-gradient">siguiente nivel</span>?
+                </h2>
+                <p class="text-xl text-gray-300 max-w-3xl mx-auto mb-10">
+                    No te quedes atrás en la revolución educativa. Contáctanos hoy para una consulta sin compromiso y descubre el potencial de la IA para tu negocio.
+                </p>
+                <a href="mailto:contacto@mrseldon.com" class="btn-primary px-8 py-4 rounded-full text-lg">
+                    <i class="fas fa-rocket mr-2"></i>
+                    SOLICITAR DEMO GRATUITA
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-black/70 border-t border-gray-800 relative z-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+            <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-12">
+                <div class="col-span-2">
+                    <a href="index.html" aria-label="Página de inicio de Mr. Seldon">
+                        <div class="flex items-center mb-6">
+                            <img src="https://lolezno.github.io/mrseldon/logo-mr-seldon-web.png" alt="Logo de Mr. Seldon" class="h-10 mr-3">
+                            <span class="text-2xl font-bold animated-gradient">Mr. Seldon</span>
+                        </div>
+                    </a>
+                    <p class="text-gray-400 mb-6">Innovación y eficiencia impulsadas por Inteligencia Artificial.</p>
+                </div>
+                <div>
+                    <h4 class="text-lg font-semibold text-white mb-4">Soluciones</h4>
+                    <ul class="space-y-3">
+                        <li><a href="#servicios" class="text-gray-400 hover:text-primary transition-colors">Para Formación</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-primary transition-colors">Para Ventas</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-primary transition-colors">Para Administración</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-lg font-semibold text-white mb-4">Recursos</h4>
+                    <ul class="space-y-3">
+                        <li><a href="index.html#casos-exito" class="text-gray-400 hover:text-primary transition-colors">Casos de Éxito</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-primary transition-colors">Blog</a></li>
+                        <li><a href="#contacto" class="text-gray-400 hover:text-primary transition-colors">Contacto</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-lg font-semibold text-white mb-4">Empresa</h4>
+                    <ul class="space-y-3">
+                        <li><a href="#" class="text-gray-400 hover:text-primary transition-colors">Sobre Nosotros</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-primary transition-colors">Legal</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 mt-16 pt-8 text-center">
+                <p class="text-gray-400">© 2024 Mr. Seldon. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+            if (mobileMenuButton && mobileMenu) {
+                mobileMenuButton.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
+            }
+
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href');
+                    const targetElement = document.querySelector(targetId);
+                    if (targetElement) {
+                        targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                        if (mobileMenu && !mobileMenu.classList.contains('hidden')) {
+                            mobileMenu.classList.add('hidden');
+                        }
+                    }
+                });
+            });
+
+            const fadeInElements = document.querySelectorAll('.animate-fade-in');
+            if (fadeInElements.length > 0) {
+                const observer = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            entry.target.classList.add('is-visible');
+                            observer.unobserve(entry.target);
+                        }
+                    });
+                }, { threshold: 0.1 });
+                fadeInElements.forEach(el => observer.observe(el));
+            }
+
+            document.addEventListener('mousemove', function(e) {
+                const sparkle = document.createElement('div');
+                sparkle.className = 'sparkle';
+                document.body.appendChild(sparkle);
+                sparkle.style.left = e.pageX + 'px';
+                sparkle.style.top = e.pageY + 'px';
+                sparkle.animate([
+                    { opacity: 1, transform: 'scale(1)' },
+                    { opacity: 0, transform: `scale(3) translate(${Math.random()*40-20}px, ${Math.random()*40-20}px)` }
+                ], { duration: 800, easing: 'cubic-bezier(0.4, 0, 0.2, 1)', fill: 'forwards' });
+                setTimeout(() => sparkle.remove(), 800);
+            });
+        });
+    </script>
+</body>
+</html>
