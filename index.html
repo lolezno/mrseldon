@@ -26,55 +26,119 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <style>
-        .contact-section {
-    max-width: 600px;
-    margin: 3rem auto;
+  .contact-section {
+    max-width: 900px;
+    margin: 4rem auto;
     padding: 2rem;
-    background-color: #ffffff;
-    border-radius: 8px;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    background-color: #000;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+    color: white;
+    font-family: 'Arial', sans-serif;
   }
+
   .contact-section h2 {
-    font-size: 2rem;
-    color: #222;
-    margin-bottom: 1rem;
+    font-size: 2.2rem;
+    color: #f97316; /* naranja */
+    margin-bottom: 2rem;
     text-align: center;
+    font-weight: 600;
   }
+
   .contact-section form {
     display: flex;
     flex-direction: column;
-    gap: 1rem;
+    gap: 1.2rem;
   }
+
   .contact-section input,
   .contact-section textarea {
-    padding: 0.8rem 1rem;
+    padding: 1rem;
     font-size: 1rem;
-    border: 1px solid #ccc;
-    border-radius: 4px;
+    border: 1px solid #555;
+    border-radius: 6px;
+    background-color: transparent;
+    color: white;
+    transition: all 0.3s ease;
   }
-  .contact-section textarea {
-    resize: vertical;
+
+  .contact-section input::placeholder,
+  .contact-section textarea::placeholder {
+    color: #ccc;
   }
-  .contact-section .privacy {
+
+  .contact-section input:focus,
+  .contact-section textarea:focus {
+    border-color: #f97316;
+    outline: none;
+    transform: scale(1.02);
+    box-shadow: 0 0 5px #f97316;
+  }
+
+  .privacy {
     display: flex;
     align-items: center;
     font-size: 0.9rem;
   }
-  .contact-section .privacy input {
+
+  .privacy input {
     margin-right: 0.5rem;
   }
+
+  .privacy label {
+    color: white;
+  }
+
+  .privacy a {
+    color: #f97316;
+    text-decoration: underline;
+  }
+
   .contact-section button {
     padding: 1rem;
     font-size: 1.1rem;
-    color: #fff;
-    background-color: #222;
+    color: white;
+    background-color: #f97316;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+
+  .contact-section button:hover {
+    background-color: #fb923c;
+  }
+
+  /* Modal de gracias */
+  .thank-you-modal {
+    display: none;
+    position: fixed;
+    z-index: 9999;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background-color: rgba(0,0,0,0.8);
+    justify-content: center;
+    align-items: center;
+  }
+
+  .thank-you-modal-content {
+    background-color: #fff;
+    color: #111;
+    padding: 2rem;
+    border-radius: 10px;
+    max-width: 400px;
+    text-align: center;
+    font-size: 1.2rem;
+  }
+
+  .thank-you-modal-content button {
+    margin-top: 1.5rem;
+    padding: 0.8rem 1.2rem;
+    background-color: #f97316;
+    color: white;
     border: none;
     border-radius: 4px;
     cursor: pointer;
-    transition: background-color 0.2s ease;
-  }
-  .contact-section button:hover {
-    background-color: #555;
   }
         :root {
             --primary: #FFA500; /* Naranja Vibrante */
@@ -723,7 +787,7 @@
 <!-- ... contenido anterior de tu página ... -->
 <div class="contact-section">
   <h2>¿Quieres que te contactemos?</h2>
-  <form name="contact" method="POST" data-netlify="true">
+  <form name="contact" method="POST" data-netlify="true" onsubmit="showThankYou(event)">
     <input type="text" name="name" placeholder="Tu nombre" required>
     <input type="email" name="email" placeholder="Tu email" required>
     <textarea name="message" placeholder="Tu mensaje" rows="5"></textarea>
@@ -733,6 +797,14 @@
     </div>
     <button type="submit">Enviar mensaje</button>
   </form>
+</div>
+
+<!-- Popup de gracias -->
+<div id="thankYouModal" class="thank-you-modal">
+  <div class="thank-you-modal-content">
+    <p>¡Gracias por tu mensaje!<br>Nos pondremos en contacto contigo pronto.</p>
+    <button onclick="closeThankYou()">Cerrar</button>
+  </div>
 </div>
     </main>
     <!-- Footer -->
@@ -890,5 +962,28 @@
 
         });
     </script>
+    // gracias //
+    <script>
+  function showThankYou(event) {
+    event.preventDefault(); // evita recarga
+    const form = event.target;
+    const modal = document.getElementById('thankYouModal');
+
+    fetch("/", {
+      method: "POST",
+      headers: { "Content-Type": "application/x-www-form-urlencoded" },
+      body: new URLSearchParams(new FormData(form)).toString()
+    })
+    .then(() => {
+      modal.style.display = 'flex';
+      form.reset();
+    })
+    .catch(error => alert('Error al enviar: ' + error));
+  }
+
+  function closeThankYou() {
+    document.getElementById('thankYouModal').style.display = 'none';
+  }
+</script>
 </body>
 </html>
