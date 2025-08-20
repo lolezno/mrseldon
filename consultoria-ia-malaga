@@ -1,0 +1,986 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Consultoría IA en Málaga | Mr. Seldon - Consultor de Inteligencia Artificial</title>
+    <meta name="description" content="Mr. Seldon, tu consultor de inteligencia artificial en Málaga. Ofrecemos soluciones de IA para optimizar procesos, reducir costes y potenciar la satisfacción del cliente en tu negocio local.">
+    <meta name="keywords" content="consultoría IA Málaga, consultor inteligencia artificial Málaga, inteligencia artificial Málaga, automatización procesos Málaga, reducción de costes IA, análisis de datos, soluciones IA Málaga">
+    <meta name="author" content="Mr. Seldon">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.mrseldon.com/consultoria-ia-malaga">
+    <meta property="og:title" content="Consultoría IA en Málaga | Mr. Seldon - Consultor de Inteligencia Artificial">
+    <meta property="og:description" content="Soluciones de IA a medida para empresas en Málaga. Optimización de procesos, reducción de costes y aumento de la eficiencia con Mr. Seldon.">
+    <meta property="og:image" content="https://imagedelivery.net/LtCN8b7XAtToQgo5calb3g/d9095057-4171-41c5-e634-11005a8d9b00/public">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://www.mrseldon.com/consultoria-ia-malaga">
+    <meta property="twitter:title" content="Consultoría IA en Málaga | Mr. Seldon - Consultor de Inteligencia Artificial">
+    <meta property="twitter:description" content="Soluciones de IA a medida para empresas en Málaga. Optimización de procesos, reducción de costes y aumento de la eficiencia con Mr. Seldon.">
+    <meta property="twitter:image" content="https://imagedelivery.net/LtCN8b7XAtToQgo5calb3g/d9095057-4171-41c5-e634-11005a8d9b00/public">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        .contact-section {
+            max-width: 900px;
+            margin: 4rem auto;
+            padding: 2rem;
+            background-color: #000;
+            border-radius: 12px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+            color: white;
+            font-family: 'Arial', sans-serif;
+        }
+
+        .contact-section h2 {
+            font-size: 2.2rem;
+            color: #f97316; /* naranja */
+            margin-bottom: 2rem;
+            text-align: center;
+            font-weight: 600;
+        }
+
+        .contact-section form {
+            display: flex;
+            flex-direction: column;
+            gap: 1.2rem;
+        }
+
+        .contact-section input,
+        .contact-section textarea {
+            padding: 1rem;
+            font-size: 1rem;
+            border: 1px solid #555;
+            border-radius: 6px;
+            background-color: transparent;
+            color: white;
+            transition: all 0.3s ease;
+        }
+
+        .contact-section input::placeholder,
+        .contact-section textarea::placeholder {
+            color: #ccc;
+        }
+
+        .contact-section input:focus,
+        .contact-section textarea:focus {
+            border-color: #f97316;
+            outline: none;
+            transform: scale(1.02);
+            box-shadow: 0 0 5px #f97316;
+        }
+
+        .privacy {
+            display: flex;
+            align-items: center;
+            font-size: 0.9rem;
+        }
+
+        .privacy input {
+            margin-right: 0.5rem;
+        }
+
+        .privacy label {
+            color: white;
+        }
+
+        .privacy a {
+            color: #f97316;
+            text-decoration: underline;
+        }
+
+        .contact-section button {
+            padding: 1rem;
+            font-size: 1.1rem;
+            color: white;
+            background-color: #f97316;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .contact-section button:hover {
+            background-color: #fb923c;
+        }
+
+        /* Modal de gracias */
+        .thank-you-modal {
+            display: none;
+            position: fixed;
+            z-index: 9999;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background-color: rgba(0,0,0,0.8);
+            justify-content: center;
+            align-items: center;
+        }
+
+        .thank-you-modal-content {
+            background-color: #fff;
+            color: #111;
+            padding: 2rem;
+            border-radius: 10px;
+            max-width: 400px;
+            text-align: center;
+            font-size: 1.2rem;
+        }
+
+        .thank-you-modal-content button {
+            margin-top: 1.5rem;
+            padding: 0.8rem 1.2rem;
+            background-color: #f97316;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        :root {
+            --primary: #FFA500; /* Naranja Vibrante */
+            --primary-dark: #E59400;
+            --secondary: #0066FF; /* Azul Intenso */
+            --dark: #0A0A0A;
+            --darker: #010101;
+            --light: #F5F5F5;
+            --gray: #1E1E1E;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--dark);
+            color: white;
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+        }
+        
+        .hero-title {
+            line-height: 1.1;
+            letter-spacing: -0.05em;
+        }
+        
+        .glow-text {
+            text-shadow: 0 0 10px rgba(255, 165, 0, 0.7);
+        }
+        
+        .glow-box {
+            box-shadow: 0 0 20px rgba(255, 165, 0, 0.3);
+        }
+        
+        .gradient-box {
+            background: linear-gradient(135deg, rgba(10, 10, 10, 0.8), rgba(1, 1, 1, 0.9));
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 165, 0, 0.1);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+        }
+        
+        .primary-border {
+            position: relative;
+        }
+        
+        .primary-border::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border-radius: inherit;
+            padding: 2px;
+            background: linear-gradient(45deg, var(--primary), rgba(255, 165, 0, 0.3));
+            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            mask-composite: exclude;
+            pointer-events: none;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-15px); }
+        }
+        
+        .floating {
+            animation: float 6s ease-in-out infinite;
+        }
+        
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(255, 165, 0, 0.7); }
+            70% { box-shadow: 0 0 0 15px rgba(255, 165, 0, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(255, 165, 0, 0); }
+        }
+        
+        .pulse {
+            animation: pulse 2s infinite;
+        }
+        
+        .typewriter {
+            border-right: 3px solid var(--primary);
+            white-space: nowrap;
+            overflow: hidden;
+            display: inline-block;
+            vertical-align: bottom;
+        }
+        
+        .typing {
+            animation: blink-caret 1s step-end infinite;
+        }
+        
+        @keyframes blink-caret {
+            from, to { border-color: transparent }
+            50% { border-color: var(--primary); }
+        }
+        
+        .scrolling-text {
+            animation: scrollText 30s linear infinite;
+            white-space: nowrap;
+        }
+        
+        @keyframes scrollText {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+        
+        .gradient-mask {
+            mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+        }
+        
+        .ai-chip {
+            position: absolute;
+            top: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: linear-gradient(90deg, #000000, #1E1E1E, #000000);
+            color: var(--primary);
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: bold;
+            border: 1px solid rgba(255, 165, 0, 0.3);
+            box-shadow: 0 0 10px rgba(255, 165, 0, 0.2);
+        }
+        
+        .gradient-text {
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .animated-gradient {
+            background: linear-gradient(-45deg, var(--primary), var(--secondary), var(--primary));
+            background-size: 300% 300%;
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: gradient 6s ease infinite;
+        }
+        
+        @keyframes gradient {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .shadow-inner-custom {
+            box-shadow: inset 0 0 15px rgba(0, 0, 0, 0.5);
+        }
+        
+        .grid-pattern {
+            background-image: 
+                linear-gradient(rgba(255, 165, 0, 0.05) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255, 165, 0, 0.05) 1px, transparent 1px);
+            background-size: 30px 30px;
+        }
+        
+        .animated-blob {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(40px);
+            opacity: 0.2;
+            animation: blob-move 15s infinite alternate;
+        }
+        
+        @keyframes blob-move {
+            0%, 100% { transform: translate(0%, 0%); }
+            25% { transform: translate(10%, -15%); }
+            50% { transform: translate(5%, 10%); }
+            75% { transform: translate(-10%, 5%); }
+        }
+        
+        .tilt-effect {
+            transition: transform 0.3s ease;
+        }
+        
+        .tilt-effect:hover {
+            transform: perspective(1000px) rotateY(5deg) rotateX(3deg) scale(1.05);
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(255, 165, 0, 0.2);
+        }
+        .feature-card {
+            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+        }
+        
+        .testimonial-card {
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255, 165, 0, 0.1);
+        }
+        
+        .testimonial-card:hover {
+            border-color: rgba(255, 165, 0, 0.3);
+        }
+        
+        .pricing-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(255, 165, 0, 0.15);
+        }
+        
+        .primary-underline {
+            position: relative;
+            display: inline-block;
+        }
+        
+        .primary-underline::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 3px;
+            bottom: -5px;
+            left: 0;
+            background: linear-gradient(90deg, var(--primary), transparent);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.3s ease;
+        }
+        
+        .primary-underline:hover::after {
+            transform: scaleX(1);
+        }
+        
+        .btn-primary {
+            background-color: var(--primary);
+            color: var(--dark);
+            font-weight: 700;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(255, 165, 0, 0.3);
+        }
+                
+        .btn-secondary {
+            background-color: transparent;
+            border: 2px solid var(--primary);
+            color: var(--primary);
+            font-weight: 700;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-secondary:hover {
+            color: var(--dark);
+            background-color: var(--primary);
+            transform: translateY(-2px);
+        }
+        
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        
+        ::-webkit-scrollbar-track {
+            background: var(--darker);
+        }
+        
+        ::-webkit-scrollbar-thumb {
+            background: var(--primary);
+            border-radius: 4px;
+        }
+        
+        .input-field:focus {
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(255, 165, 0, 0.2);
+        }
+        
+        .stat-card:hover {
+            border-color: rgba(255, 165, 0, 0.3);
+            transform: translateY(-5px);
+        }
+
+        .sparkle {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background-color: var(--primary);
+            border-radius: 50%;
+            pointer-events: none;
+            opacity: 0;
+            z-index: 9999;
+        }
+
+        .animate-fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+        .animate-fade-in.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .faq-item {
+            border-bottom: 1px solid rgba(255, 165, 0, 0.2);
+        }
+
+        .faq-question {
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem 0;
+        }
+
+        .faq-question h3 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: white;
+            transition: color 0.3s ease;
+        }
+        
+        .faq-question:hover h3 {
+            color: var(--primary);
+        }
+
+        .faq-question .icon {
+            transition: transform 0.3s ease;
+        }
+        .faq-question.active .icon {
+            transform: rotate(45deg);
+        }
+        
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease-in-out;
+        }
+        
+        .faq-answer p {
+            padding-bottom: 1.5rem;
+            color: #ccc;
+        }
+    </style>
+</head>
+<body class="grid-pattern">
+    <!-- Animated background elements -->
+    <div class="fixed inset-0 overflow-hidden pointer-events-none z-0">
+        <div class="animated-blob w-96 h-96 bg-primary -left-20 -top-20 opacity-10" style="animation-delay: 0s;"></div>
+        <div class="animated-blob w-80 h-80 bg-secondary top-1/4 -right-40 opacity-10" style="animation-delay: 2s;"></div>
+    </div>
+
+    <!-- Navigation simplificada para Landing Page -->
+    <header class="bg-black/70 backdrop-blur-md border-b border-gray-800 fixed w-full z-50">
+        <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-20 items-center">
+                <div class="flex items-center gap-8">
+                    <a href="https://mrseldon.com/" aria-label="Página de inicio de Mr. Seldon">
+                        <div class="flex items-center">
+                            <img src="https://mrseldon.com/logo-mr-seldon-web.png" alt="Logo de Mr. Seldon" class="h-10 mr-3">
+                            <span class="text-2xl font-bold animated-gradient">Mr. Seldon</span>
+                        </div>
+                    </a>
+                </div>
+                <div class="flex items-center gap-4">
+                    <a href="#contacto" class="btn-primary px-6 py-3 rounded-full flex items-center gap-2 glow-box pulse">
+                        <i class="fas fa-rocket"></i>
+                        <span>Solicita una Demo</span>
+                    </a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Hero Section - Enfocado en Málaga -->
+        <section class="pt-32 pb-24 px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="max-w-7xl mx-auto">
+                <div class="flex flex-col lg:flex-row items-center gap-8 xl:gap-12">
+                    <div class="lg:w-1/2">
+                        <div class="bg-black/20 border border-gray-800 rounded-full px-4 py-1.5 w-max mb-6 glow-box">
+                            <span class="text-primary text-sm font-medium">TU SOCIO TECNOLÓGICO EN ANDALUCÍA</span>
+                        </div>
+                        <h1 class="text-5xl md:text-6xl lg:text-7xl font-bold hero-title mb-6">
+                            <span class="animated-gradient">Consultoría IA</span> en <span class="typewriter typing">Málaga</span>
+                        </h1>
+                        <p class="text-xl md:text-2xl text-gray-300 mb-8 max-w-xl">
+                            Transformamos tu empresa con soluciones de Inteligencia Artificial a medida. Como consultores de IA locales, entendemos tu mercado y te ayudamos a liderar la innovación.
+                        </p>
+                        <div class="flex flex-col sm:flex-row gap-4 mb-12">
+                            <a href="#contacto" class="btn-primary px-8 py-4 rounded-full text-lg flex items-center justify-center gap-2">
+                                <i class="fas fa-bolt"></i>
+                                Hablemos de tu Negocio
+                            </a>
+                            <a href="#soluciones" class="btn-secondary px-8 py-4 rounded-full text-lg flex items-center justify-center gap-2">
+                                <i class="fas fa-cogs"></i>
+                                Ver Soluciones
+                            </a>
+                        </div>
+                        <div class="flex flex-wrap gap-6 items-center">
+                            <div class="flex -space-x-4">
+                                <img src="https://randomuser.me/api/portraits/women/43.jpg" class="w-12 h-12 rounded-full border-2 border-black" alt="Cliente de Málaga 1">
+                                <img src="https://randomuser.me/api/portraits/men/32.jpg" class="w-12 h-12 rounded-full border-2 border-black" alt="Cliente de Málaga 2">
+                                <img src="https://randomuser.me/api/portraits/women/65.jpg" class="w-12 h-12 rounded-full border-2 border-black" alt="Cliente de Málaga 3">
+                                <div class="w-12 h-12 rounded-full border-2 border-black bg-gray-900 flex items-center justify-center">
+                                    <span class="text-xs font-bold text-primary">+100</span>
+                                </div>
+                            </div>
+                            <div class="flex flex-col sm:flex-row sm:items-center gap-2">
+                                <div class="flex items-center">
+                                    <i class="fas fa-star text-yellow-400 mr-1"></i>
+                                    <i class="fas fa-star text-yellow-400 mr-1"></i>
+                                    <i class="fas fa-star text-yellow-400 mr-1"></i>
+                                    <i class="fas fa-star text-yellow-400 mr-1"></i>
+                                    <i class="fas fa-star text-yellow-400 mr-1"></i>
+                                </div>
+                                <span class="text-sm text-gray-400">Transformando negocios en la Costa del Sol</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="lg:w-1/2 relative hero-ai-tool">
+                        <!-- El mismo visual de la herramienta AI para mantener la consistencia -->
+                        <div class="relative floating">
+                            <div class="gradient-box rounded-xl w-full max-w-xl mx-auto primary-border tilt-effect p-2">
+                                <div class="ai-tool-container bg-black/50 rounded-lg">
+                                    <div class="flex items-center justify-between p-3 border-b border-primary/20">
+                                        <div class="flex items-center gap-2">
+                                            <div class="w-3 h-3 rounded-full bg-[#ff5f56]"></div>
+                                            <div class="w-3 h-3 rounded-full bg-[#ffbd2e]"></div>
+                                            <div class="w-3 h-3 rounded-full bg-[#27c93f]"></div>
+                                        </div>
+                                        <h3 class="text-xs font-medium text-gray-400">Asistente IA de Mr. Seldon</h3>
+                                        <div class="w-20"></div>
+                                    </div>
+                                    <div class="p-5">
+                                        <div class="mb-3 p-3 bg-gray-900/50 rounded-lg border-l-2 border-primary">
+                                            <h4 class="font-bold text-primary mb-1">Análisis de Mercado en Málaga</h4>
+                                            <p class="text-sm text-gray-300">He detectado nuevas oportunidades de mercado en el sector tecnológico de la Costa del Sol.</p>
+                                        </div>
+                                        <div class="mb-3 p-3 bg-gray-900/50 rounded-lg border-l-2 border-primary">
+                                            <h4 class="font-bold text-primary mb-1">Impacto en Satisfacción del Cliente</h4>
+                                            <p class="text-sm text-gray-300">Un chatbot de soporte 24/7 podría mejorar la valoración de tus clientes en un 30% según el análisis de datos.</p>
+                                            <div class="mt-3 flex items-center gap-2">
+                                                <span class="text-xs bg-primary/10 text-primary px-2 py-1 rounded-full">Coste Reducido: 45%</span>
+                                                <span class="text-xs bg-secondary/10 text-secondary px-2 py-1 rounded-full">Eficiencia: +70%</span>
+                                            </div>
+                                        </div>
+                                        <div class="flex items-center gap-2 text-primary">
+                                            <span class="text-xs">Generando informe de eficiencia...</span>
+                                            <div class="w-2 h-2 bg-primary rounded-full animate-pulse" style="animation-delay: 0s;"></div>
+                                            <div class="w-2 h-2 bg-primary rounded-full animate-pulse" style="animation-delay: 0.2s;"></div>
+                                            <div class="w-2 h-2 bg-primary rounded-full animate-pulse" style="animation-delay: 0.4s;"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Solutions Section - Enfocado en IA Avanzada -->
+        <section id="soluciones" class="py-24 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-black to-gray-900">
+            <div class="max-w-7xl mx-auto relative z-10">
+                <div class="text-center mb-16">
+                    <span class="inline-block px-4 py-1.5 rounded-full bg-black/30 border border-gray-800 text-primary font-medium mb-4 glow-box">SOLUCIONES AVANZADAS</span>
+                    <h2 class="text-4xl md:text-5xl font-bold text-white mb-6">
+                        Desbloquea el Potencial de la <span class="animated-gradient">IA en tu Empresa</span>
+                    </h2>
+                    <p class="text-xl text-gray-300 max-w-3xl mx-auto">
+                        Como **consultores de IA en Málaga**, te ayudamos a implementar soluciones de alto impacto diseñadas para el mercado local.
+                    </p>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <div class="gradient-box p-8 rounded-2xl feature-card tilt-effect">
+                        <div class="w-12 h-12 rounded-full bg-primary/10 text-primary text-xl flex items-center justify-center mb-6"><i class="fas fa-sack-dollar"></i></div>
+                        <h3 class="text-xl font-bold text-white mb-4">Reducción de Costes Operativos</h3>
+                        <p class="text-gray-400">Mediante la automatización inteligente de tareas administrativas, logísticas y de atención al cliente, logramos reducir tus costes y aumentar la rentabilidad.</p>
+                    </div>
+                    <div class="gradient-box p-8 rounded-2xl feature-card tilt-effect">
+                        <div class="w-12 h-12 rounded-full bg-primary/10 text-primary text-xl flex items-center justify-center mb-6"><i class="fas fa-smile-beam"></i></div>
+                        <h3 class="text-xl font-bold text-white mb-4">Análisis de Datos para el Cliente</h3>
+                        <p class="text-gray-400">Utilizamos machine learning para analizar el comportamiento y las interacciones de tus clientes, mejorando la personalización y, como resultado, su satisfacción.</p>
+                    </div>
+                    <div class="gradient-box p-8 rounded-2xl feature-card tilt-effect">
+                        <div class="w-12 h-12 rounded-full bg-primary/10 text-primary text-xl flex items-center justify-center mb-6"><i class="fas fa-sync-alt"></i></div>
+                        <h3 class="text-xl font-bold text-white mb-4">Optimización de Procesos</h3>
+                        <p class="text-gray-400">Diseñamos flujos de trabajo inteligentes que eliminan ineficiencias, aceleran la toma de decisiones y garantizan una productividad máxima en tu equipo.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Testimonial Section - Localizado -->
+        <section id="testimonios" class="py-24 px-4 sm:px-6 lg:px-8 bg-black/20">
+            <div class="max-w-7xl mx-auto relative z-10">
+                <div class="text-center mb-16">
+                    <span class="inline-block px-4 py-1.5 rounded-full bg-black/30 border border-gray-800 text-primary font-medium mb-4 glow-box">CLIENTES SATISFECHOS EN MÁLAGA</span>
+                    <h2 class="text-4xl md:text-5xl font-bold text-white mb-6">
+                        Opiniones de <span class="animated-gradient">Empresas Malagueñas</span>
+                    </h2>
+                    <p class="text-xl text-gray-300 max-w-3xl mx-auto">
+                        Conoce lo que dicen nuestros socios en la provincia de Málaga.
+                    </p>
+                </div>
+                
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                    <div class="gradient-box p-8 rounded-2xl relative overflow-hidden testimonial-card">
+                        <div class="flex items-center gap-4 mb-6">
+                            <img src="https://randomuser.me/api/portraits/men/9.jpg" class="w-16 h-16 rounded-full object-cover border-2 border-primary/30" alt="Foto de un consultor">
+                            <div>
+                                <h4 class="font-bold text-white">Roberto Sánchez</h4>
+                                <span class="text-primary text-sm">Gerente, Soluciones Digitales del Sur</span>
+                            </div>
+                        </div>
+                        <p class="text-gray-300 mb-6">
+                            "Como **consultor de inteligencia artificial en Málaga**, Mr. Seldon entendió perfectamente nuestras necesidades. La implementación de un asistente de IA para ventas ha revolucionado nuestro trabajo y nos ha posicionado como líderes en la región."
+                        </p>
+                        <div class="bg-black/30 rounded-lg p-4 border border-gray-700">
+                            <h4 class="font-bold">Aumento de leads cualificados: <span class="text-primary">+35%</span></h4>
+                        </div>
+                    </div>
+                    <div class="gradient-box p-8 rounded-2xl relative overflow-hidden testimonial-card">
+                        <div class="flex items-center gap-4 mb-6">
+                            <img src="https://randomuser.me/api/portraits/women/1.jpg" class="w-16 h-16 rounded-full object-cover border-2 border-primary/30" alt="Foto de una consultora">
+                            <div>
+                                <h4 class="font-bold text-white">Ana Jiménez</h4>
+                                <span class="text-primary text-sm">Directora, Innova Hotel Group</span>
+                            </div>
+                        </div>
+                        <p class="text-gray-300 mb-6">
+                            "Nuestra experiencia con la **consultoría IA en Málaga** de Mr. Seldon ha sido excepcional. La solución de análisis de datos para predecir la ocupación hotelera nos ha permitido optimizar la gestión de precios y recursos, aumentando nuestra rentabilidad."
+                        </p>
+                        <div class="bg-black/30 rounded-lg p-4 border border-gray-700">
+                            <h4 class="font-bold">Mejora en la predicción de ocupación: <span class="text-primary">+20%</span></h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- New FAQ Section -->
+        <section id="faq" class="py-24 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-gray-900 to-black">
+            <div class="max-w-3xl mx-auto relative z-10">
+                <div class="text-center mb-16">
+                    <span class="inline-block px-4 py-1.5 rounded-full bg-black/30 border border-gray-800 text-primary font-medium mb-4 glow-box">PREGUNTAS FRECUENTES</span>
+                    <h2 class="text-4xl md:text-5xl font-bold text-white mb-6">
+                        Resolvemos tus Dudas sobre <span class="animated-gradient">IA en Málaga</span>
+                    </h2>
+                    <p class="text-xl text-gray-300">
+                        Aquí encontrarás las respuestas a las preguntas más comunes sobre nuestras soluciones de consultoría de IA.
+                    </p>
+                </div>
+
+                <div class="space-y-4">
+                    <!-- FAQ 1 -->
+                    <div class="faq-item gradient-box rounded-lg p-6">
+                        <div class="faq-question flex items-center justify-between">
+                            <h3 class="font-semibold text-lg">¿Qué coste tiene implementar la IA en mi negocio?</h3>
+                            <i class="fas fa-plus icon text-primary"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p class="mt-4 text-gray-400">El coste de una solución de IA es totalmente personalizado. En Mr. Seldon, el primer paso es una **consultoría gratuita de tu negocio en Málaga**. Analizamos tus necesidades, procesos y objetivos para diseñar una propuesta a medida que garantice un retorno de la inversión claro y medible. Invertir en IA es invertir en la eficiencia y el futuro de tu empresa.</p>
+                        </div>
+                    </div>
+
+                    <!-- FAQ 2 -->
+                    <div class="faq-item gradient-box rounded-lg p-6">
+                        <div class="faq-question">
+                            <h3 class="font-semibold text-lg">¿Mi empresa es demasiado pequeña para usar IA?</h3>
+                            <i class="fas fa-plus icon text-primary"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p class="mt-4 text-gray-400">¡Absolutamente no! La IA no es exclusiva de las grandes corporaciones. Implementamos soluciones de inteligencia artificial escalables que se adaptan a las necesidades y al presupuesto de pequeñas y medianas empresas. La automatización de tareas, por ejemplo, puede tener un impacto transformador, liberando tiempo valioso para que te enfoques en el crecimiento.</p>
+                        </div>
+                    </div>
+
+                    <!-- FAQ 3 -->
+                    <div class="faq-item gradient-box rounded-lg p-6">
+                        <div class="faq-question">
+                            <h3 class="font-semibold text-lg">¿Cómo puede la IA mejorar la satisfacción de mis clientes?</h3>
+                            <i class="fas fa-plus icon text-primary"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p class="mt-4 text-gray-400">La IA permite analizar grandes volúmenes de datos de clientes para entender sus necesidades, preferencias y puntos de dolor. Podemos implementar chatbots de soporte 24/7, personalizar las ofertas de productos y servicios, o automatizar respuestas rápidas a consultas comunes, lo que resulta en una experiencia más rápida y satisfactoria para tu cliente.</p>
+                        </div>
+                    </div>
+                    
+                    <!-- FAQ 4 -->
+                    <div class="faq-item gradient-box rounded-lg p-6">
+                        <div class="faq-question">
+                            <h3 class="font-semibold text-lg">¿Qué diferencia a Mr. Seldon como consultor de IA en Málaga?</h3>
+                            <i class="fas fa-plus icon text-primary"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p class="mt-4 text-gray-400">Nuestro principal diferencial es el enfoque local. Como **consultores de IA en Málaga**, conocemos de primera mano el tejido empresarial de la provincia. Ofrecemos una atención cercana y personalizada, garantizando que cada solución no solo sea tecnológicamente avanzada, sino que también se adapte a la perfección a las particularidades del mercado andaluz.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section - Localizado -->
+        <section id="contacto" class="py-24 px-4 sm:px-6 lg:px-8 bg-gradient-to-r from-black to-gray-900">
+            <div class="max-w-7xl mx-auto text-center relative z-10">
+                <h2 class="text-4xl md:text-5xl font-bold text-white mb-6">
+                    ¿Listo para impulsar tu negocio <span class="animated-gradient">en Málaga</span>?
+                </h2>
+                <p class="text-xl text-gray-300 max-w-3xl mx-auto mb-10">
+                    Hablemos de cómo la Inteligencia Artificial puede ayudarte a alcanzar tus objetivos en el dinámico mercado malagueño. La primera consulta es gratuita.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                    <a href="mailto:contacto@mrseldon.com" class="btn-primary px-8 py-4 rounded-full text-lg">
+                        <i class="fas fa-rocket mr-2"></i>
+                        Agenda tu Consulta Gratuita
+                    </a>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Formulario de contacto -->
+        <div class="contact-section">
+            <h2>¿Quieres que te contactemos?</h2>
+            <form name="contact" method="POST" data-netlify="true" onsubmit="showThankYou(event)">
+                <input type="text" name="name" placeholder="Tu nombre" required>
+                <input type="email" name="email" placeholder="Tu email" required>
+                <textarea name="message" placeholder="Tu mensaje" rows="5"></textarea>
+                <div class="privacy">
+                    <input type="checkbox" name="privacy" id="privacy" required>
+                    <label for="privacy">He leído y acepto la <a href="/politica-privacidad" target="_blank">política de privacidad</a>.</label>
+                </div>
+                <button type="submit">Enviar mensaje</button>
+            </form>
+        </div>
+
+        <!-- Popup de gracias -->
+        <div id="thankYouModal" class="thank-you-modal">
+            <div class="thank-you-modal-content">
+                <p>¡Gracias por tu mensaje!<br>Nos pondremos en contacto contigo pronto.</p>
+                <button onclick="closeThankYou()">Cerrar</button>
+            </div>
+        </div>
+    </main>
+    
+    <!-- Footer -->
+    <footer class="bg-black/70 border-t border-gray-800 relative z-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+            <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-12">
+                <div class="col-span-2">
+                    <a href="https://mrseldon.com/" aria-label="Página de inicio de Mr. Seldon">
+                        <div class="flex items-center mb-6">
+                            <img src="https://mrseldon.com/logo-mr-seldon-web.png" alt="Logo de Mr. Seldon - Consultoria IA" class="h-10 mr-3">
+                            <span class="text-2xl font-bold animated-gradient">Mr. Seldon</span>
+                        </div>
+                    </a>
+                    <p class="text-gray-400 mb-6">Innovación y eficiencia impulsadas por Inteligencia Artificial.</p>
+                    <div class="flex gap-4">
+                        <a href="#" class="w-10 h-10 rounded-full bg-gray-900 flex items-center justify-center text-gray-300 hover:text-primary transition-colors" aria-label="Twitter de Mr. Seldon"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="w-10 h-10 rounded-full bg-gray-900 flex items-center justify-center text-gray-300 hover:text-primary transition-colors" aria-label="LinkedIn de Mr. Seldon"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="text-lg font-semibold text-white mb-4">Soluciones</h4>
+                    <ul class="space-y-3">
+                        <li><a href="#" class="text-gray-400 hover:text-primary transition-colors">Soluciones Formación IA</a></li>
+                        <li><a href="#soluciones" class="text-gray-400 hover:text-primary transition-colors">Consultoría de IA</a></li>
+                        <li><a href="#soluciones" class="text-gray-400 hover:text-primary transition-colors">Optimización de Procesos</a></li>
+                        <li><a href="#soluciones" class="text-gray-400 hover:text-primary transition-colors">Automatización</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-lg font-semibold text-white mb-4">Recursos</h4>
+                    <ul class="space-y-3">
+                        <li><a href="#" class="text-gray-400 hover:text-primary transition-colors">Casos de Éxito</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-primary transition-colors">Blog</a></li>
+                        <li><a href="#contacto" class="text-gray-400 hover:text-primary transition-colors">Contacto</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-lg font-semibold text-white mb-4">Empresa</h4>
+                    <ul class="space-y-3">
+                        <li><a href="#" class="text-gray-400 hover:text-primary transition-colors">Sobre Nosotros</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-primary transition-colors">Legal</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 mt-16 pt-8 flex flex-col md:flex-row justify-between items-center">
+                <p class="text-gray-400">© 2024 Mr. Seldon. Todos los derechos reservados.</p>
+                <div class="flex gap-6 mt-4 md:mt-0">
+                    <a href="#" class="text-gray-400 hover:text-primary transition-colors text-sm">Política de Privacidad</a>
+                    <a href="#" class="text-gray-400 hover:text-primary transition-colors text-sm">Términos de Servicio</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Espera a que el DOM esté completamente cargado para ejecutar los scripts
+        document.addEventListener('DOMContentLoaded', () => {
+
+            // Menú móvil (funcionalidad simplificada para esta landing)
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+            if (mobileMenuButton && mobileMenu) {
+                mobileMenuButton.addEventListener('click', function() {
+                    mobileMenu.classList.toggle('hidden');
+                });
+            }
+
+            // Smooth scroll
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href');
+                    const targetElement = document.querySelector(targetId);
+                    if (targetElement) {
+                        targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                        if (mobileMenu && !mobileMenu.classList.contains('hidden')) {
+                            mobileMenu.classList.add('hidden');
+                        }
+                    }
+                });
+            });
+
+            // Efecto Typewriter
+            const typewriterElement = document.querySelector(".typewriter");
+            if (typewriterElement) {
+                const words = ["Málaga", "la Costa del Sol", "Andalucía"];
+                let wordIndex = 0;
+                let charIndex = 0;
+                let isDeleting = false;
+
+                function type() {
+                    const currentWord = words[wordIndex];
+                    if (isDeleting) {
+                        typewriterElement.textContent = currentWord.substring(0, charIndex - 1);
+                        charIndex--;
+                    } else {
+                        typewriterElement.textContent = currentWord.substring(0, charIndex + 1);
+                        charIndex++;
+                    }
+
+                    if (!isDeleting && charIndex === currentWord.length) {
+                        isDeleting = true;
+                        setTimeout(type, 2000);
+                    } else if (isDeleting && charIndex === 0) {
+                        isDeleting = false;
+                        wordIndex = (wordIndex + 1) % words.length;
+                        setTimeout(type, 500);
+                    } else {
+                        const typingSpeed = isDeleting ? 100 : 150;
+                        setTimeout(type, typingSpeed);
+                    }
+                }
+                setTimeout(type, 1500);
+            }
+            
+            // Animación Fade-in al hacer scroll (Intersection Observer)
+            const fadeInElements = document.querySelectorAll('.animate-fade-in');
+            if (fadeInElements.length > 0) {
+                const observer = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            entry.target.classList.add('is-visible');
+                            observer.unobserve(entry.target);
+                        }
+                    });
+                }, { threshold: 0.1 });
+
+                fadeInElements.forEach(el => {
+                    observer.observe(el);
+                });
+            }
+
+            // Efecto de estela del cursor
+            document.addEventListener('mousemove', function(e) {
+                const sparkle = document.createElement('div');
+                sparkle.className = 'sparkle';
+                document.body.appendChild(sparkle);
+                
+                sparkle.style.left = e.pageX + 'px';
+                sparkle.style.top = e.pageY + 'px';
+                
+                sparkle.animate([
+                    { opacity: 1, transform: 'scale(1)' },
+                    { opacity: 0, transform: `scale(3) translate(${Math.random()*40-20}px, ${Math.random()*40-20}px)` }
+                ], {
+                    duration: 800,
+                    easing: 'cubic-bezier(0.4, 0, 0.2, 1)',
+                    fill: 'forwards'
+                });
+                
+                setTimeout(() => {
+                    sparkle.remove();
+                }, 800);
+            });
+
+            // Lógica para el acordeón de FAQ
+            const faqItems = document.querySelectorAll('.faq-question');
+            faqItems.forEach(item => {
+                item.addEventListener('click', () => {
+                    const answer = item.nextElementSibling;
+                    const icon = item.querySelector('.icon');
+                    
+                    if (answer.style.maxHeight) {
+                        // Colapsar
+                        answer.style.maxHeight = null;
+                        icon.classList.remove('active');
+                    } else {
+                        // Cerrar otros y abrir este
+                        faqItems.forEach(otherItem => {
+                            const otherAnswer = otherItem.nextElementSibling;
+                            const otherIcon = otherItem.querySelector('.icon');
+                            if (otherAnswer !== answer && otherAnswer.style.maxHeight) {
+                                otherAnswer.style.maxHeight = null;
+                                otherIcon.classList.remove('active');
+                            }
+                        });
+                        answer.style.maxHeight = answer.scrollHeight + "px";
+                        icon.classList.add('active');
+                    }
+                });
+            });
+        });
+    </script>
+    <script>
+        function showThankYou(event) {
+            event.preventDefault(); 
+            const form = event.target;
+            const modal = document.getElementById('thankYouModal');
+
+            fetch(form.action, {
+                method: "POST",
+                headers: { "Content-Type": "application/x-www-form-urlencoded" },
+                body: new URLSearchParams(new FormData(form)).toString()
+            })
+            .then(() => {
+                modal.style.display = 'flex';
+                form.reset();
+            })
+            .catch(error => console.error('Error al enviar: ' + error)); // Usamos console.error en lugar de alert
+        }
+
+        function closeThankYou() {
+            document.getElementById('thankYouModal').style.display = 'none';
+        }
+    </script>
+</body>
+</html>
